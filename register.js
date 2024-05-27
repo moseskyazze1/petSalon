@@ -7,37 +7,37 @@ let petSalon={
     },
     
 
-pets:[
-{
-    name:"Scooby",
-    age:99,
-    gender:"Male",
-    service:"Grooming"
-},
-{
-    name:"Scrappy",
-    age:99,
-    gender:"Male",
-    service:"Grooming"
-},
-{
-    name:"Tweety",
-    age:89,
-    gender:"Female",
-    service:"Nails cut",
-}
-]
+pets:[]
 }
 
-function displayNames(){
-    let names="";
-    for(let i=0; i<3; i++){
-names+=`<p> ${petSalon.pets[i].name} </p>`;
-console.log(names);
+function Pet(name,age,gender,breed,service){
+    this.name=name;
+    this.age=age;
+    this.gender=gender;
+    this.breed=breed;
+    this.service=service;
+}
+
+ function register(){
+    let inputName=document.getElementById("txtName").value;
+    let inputAge=document.getElementById("txtAge").value;
+    let inputGender=document.getElementById("txtGender").value;
+    let inputBreed=document.getElementById("txtBreed").value;
+    let inputService=document.getElementById("txtService").value;
+
+    let newPet= new Pet(inputName,inputAge,inputGender,inputBreed,inputService);
+        petSalon.pets.push(newPet);
+        console.log(petSalon.pets);
+    
     }
-document.getElementById("petNames").innerHTML=names;
-}
+ function init(){
+    let pet1=new Pet("Scooby",79,"Male","Grooming");
+    let pet2=new Pet("Scrappy",79,"Male","Grooming");
+    let pet3=new Pet("",79,"Male","Grooming");
+    petSalon.pets.push(pet1);
+    petSalon.pets.push(pet2);
+    petSalon.pets.push(pet3);
+    console.table(petSalon.pets);
+ }
 
-function countPets(){
-    console.log(petSalon.pets.length);
-}
+ window.onload=init;
