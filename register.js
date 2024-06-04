@@ -17,6 +17,20 @@ function Pet(name,age,gender,breed,service){
     this.breed=breed;
     this.service=service;
 }
+function isValid(aPet){
+    let validation=true;
+
+    if(aPet.name==""){
+        validation=false;
+        document.getElementById("txtName").classList.add("alert-error");
+    }
+    if(aPet.service==""){
+        validation=false;
+        document.getElementById("txtService").classList.add("alert-error");
+    }
+
+    return validation;
+}
 
  function register(){
     let inputName=document.getElementById("txtName").value;
@@ -26,18 +40,34 @@ function Pet(name,age,gender,breed,service){
     let inputService=document.getElementById("txtService").value;
 
     let newPet= new Pet(inputName,inputAge,inputGender,inputBreed,inputService);
+    if(isValid(newPet)){
         petSalon.pets.push(newPet);
-        console.log(petSalon.pets);
-    
+        displayCards();
+        displayRows();
+        displayTotalPets();
+        displayServiceCount();
     }
+    }
+
+function deletePet(index){
+    petSalon.pets.splice(index,1);
+    displayCards();
+    displayRows();
+    displayServiceCount();
+    displayTotalPets();
+}
+
  function init(){
-    let pet1=new Pet("Scooby",79,"Male","Grooming");
-    let pet2=new Pet("Scrappy",79,"Male","Grooming");
-    let pet3=new Pet("",79,"Male","Grooming");
+    let pet1=new Pet("Scooby",79,"Male","Dog","Grooming");
+    let pet2=new Pet("Scrappy",79,"Male","Dog","Grooming");
+    let pet3=new Pet("Davis",79,"Male","Dog","Grooming");
     petSalon.pets.push(pet1);
     petSalon.pets.push(pet2);
     petSalon.pets.push(pet3);
-    console.table(petSalon.pets);
+   displayCards();
+   displayRows();
+   displayTotalPets();
+   displayServiceCount();
  }
 
  window.onload=init;

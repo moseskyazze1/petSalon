@@ -15,37 +15,35 @@
                 <a href="index.html">Home</a>
                 <a href="register.html">Register</a>
             </nav>
+        
         </div>
-        <div class="header-info container">
-        <div>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus rerum iste eos, eum beatae, praesentium laboriosam ab velit optio expedita consequuntur repellat ex. Asperiores tempora fugiat molestiae placeat cupiditate? Voluptatum.</p>
-        </div>
-        <div>
-            <img src="img/puppy.jpg" alt="">
-        </div>
-        </div>
+        <img src="img/cat.jpg" alt="">
+        <img src="img/dog.jpg" alt="">
+        <img src="img/others.jpg" alt="">
+        <img src="img/puppy.jpg" alt="">
+        <img src="img/reptile.webp" alt="">
     </header>
         <main>
             <h2>Register a new pet</h2>
-            <div>
-            <div class="input-control">
-            <label>Name:*</label>
-            <input type="text" id="textName">
+            <div class="form-container">
+            <div class="mb-3">
+            <label class="form-label">Name:*</label>
+            <input class="form-control" type="text" id="txtName">
             </div>
-            <div>
-                <label>Age:</label>
-            <input type="number" id="textAge">
+            <div class="mb-3">
+                <label class="form-label">Age:</label>
+            <input class="form-control" type="number" id="txtAge">
             </div>
 
-            <div>
-                <label>Gender:</label>
-            <input type="text" id="textGender">
+            <div class="mb-3">
+                <label class="form-label">Gender:</label>
+            <input class="form-control" type="text" id="txtGender">
             </div>
-            <div>
-                <label>Breed:</label>
-                <input type="=text" id="textBreed">
+            <div class="mb-3">
+                <label class="form-label">Breed:</label>
+                <input class="form-control" type="text" id="txtBreed">
             </div>
-            <div class="input-control">
+            <div class="mb-3">
                 <label>Service:*</label>
             <select id="txtService">
                 <option value=""selected disabled>-- Select an option --</option>
@@ -55,11 +53,44 @@
             </div>
 
             <div class="btn-container">
-                <button class="btn btn-primary" onclick="register();"></button>
+                <button class="btn btn-dark" onclick="register();">Register</button>
             </div>
             </div>
         </main>
+        <section class="container">
+            <h2>Registered Pets</h2>
+            <div class="info">
+                <p>Dogs= <span id="dogCount">0</span></p>
+                <p>Cats= <span id="catCount">0</span></p>
+                <p>Others= <span id="otherCount">0</span></p>
+            </div>
+
+            
+            <div id="petDiv">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Breed</th>
+                        <th>Service</th>
+                    </tr>
+                </thead>
+                <tbody id="petTable">
+                    <tr>
+                        <td>Test</td>
+                        <td>99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <footer>
+            <p>Our Pet Salon 2024. All rights reserved</p>
+        </footer>
         <script src="register.js"></script>
+        <script src="display.js"></script>
             </body>
 
 </html>
