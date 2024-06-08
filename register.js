@@ -16,6 +16,7 @@ function Pet(name,age,gender,breed,service){
     this.gender=gender;
     this.breed=breed;
     this.service=service;
+    
 }
 function isValid(aPet){
     let validation=true;
@@ -57,6 +58,19 @@ function deletePet(index){
     displayTotalPets();
 }
 
+
+function getServices(){
+    //read the LS to get services
+    let serviceList=readItems();
+    let option="";
+    //travel the array of services
+    for(let i=0; i<serviceList.length; i++){
+        option=`<option value="${serviceList[i].description}"> 
+        ${serviceList[i].description}</option>`;
+        $("#textService").append(option);
+    }
+}
+
  function init(){
     let pet1=new Pet("Scooby",79,"Male","Dog","Grooming");
     let pet2=new Pet("Scrappy",79,"Male","Dog","Grooming");
@@ -68,6 +82,7 @@ function deletePet(index){
    displayRows();
    displayTotalPets();
    displayServiceCount();
+   getServices();
  }
 
  window.onload=init;
